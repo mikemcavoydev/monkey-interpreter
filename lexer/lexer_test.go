@@ -16,7 +16,19 @@ func TestNextToken(t *testing.T) {
 	};
 	
 	let result = add(five, ten);
-	`
+
+	!-/*5;
+	5 < 10 > 5;
+
+	if(5 < 10){
+		return true;
+	} else {
+		return false; 
+	}
+
+	10 == 10;
+	10 != 9;
+`
 
 	tests := []struct {
 		expectedType    token.TokenType
@@ -160,6 +172,154 @@ func TestNextToken(t *testing.T) {
 		{
 			expectedType:    token.RPAREN,
 			expectedLiteral: ")",
+		},
+		{
+			expectedType:    token.SEMICOLON,
+			expectedLiteral: ";",
+		},
+		{
+			expectedType:    token.BANG,
+			expectedLiteral: "!",
+		},
+		{
+			expectedType:    token.MINUS,
+			expectedLiteral: "-",
+		},
+		{
+			expectedType:    token.SLASH,
+			expectedLiteral: "/",
+		},
+		{
+			expectedType:    token.ASTERIX,
+			expectedLiteral: "*",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "5",
+		},
+		{
+			expectedType:    token.SEMICOLON,
+			expectedLiteral: ";",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "5",
+		},
+		{
+			expectedType:    token.LT,
+			expectedLiteral: "<",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "10",
+		},
+		{
+			expectedType:    token.GT,
+			expectedLiteral: ">",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "5",
+		},
+		{
+			expectedType:    token.SEMICOLON,
+			expectedLiteral: ";",
+		},
+		{
+			expectedType:    token.IF,
+			expectedLiteral: "if",
+		},
+		{
+			expectedType:    token.LPAREN,
+			expectedLiteral: "(",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "5",
+		},
+		{
+			expectedType:    token.LT,
+			expectedLiteral: "<",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "10",
+		},
+		{
+			expectedType:    token.RPAREN,
+			expectedLiteral: ")",
+		},
+		{
+			expectedType:    token.LBRACE,
+			expectedLiteral: "{",
+		},
+		{
+			expectedType:    token.RETURN,
+			expectedLiteral: "return",
+		},
+		{
+			expectedType:    token.TRUE,
+			expectedLiteral: "true",
+		},
+		{
+			expectedType:    token.SEMICOLON,
+			expectedLiteral: ";",
+		},
+		{
+			expectedType:    token.RBRACE,
+			expectedLiteral: "}",
+		},
+		{
+			expectedType:    token.ELSE,
+			expectedLiteral: "else",
+		},
+		{
+			expectedType:    token.LBRACE,
+			expectedLiteral: "{",
+		},
+		{
+			expectedType:    token.RETURN,
+			expectedLiteral: "return",
+		},
+		{
+			expectedType:    token.FALSE,
+			expectedLiteral: "false",
+		},
+		{
+			expectedType:    token.SEMICOLON,
+			expectedLiteral: ";",
+		},
+		{
+			expectedType:    token.RBRACE,
+			expectedLiteral: "}",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "10",
+		},
+		{
+			expectedType:    token.EQ,
+			expectedLiteral: "==",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "10",
+		},
+		{
+			expectedType:    token.SEMICOLON,
+			expectedLiteral: ";",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "10",
+		},
+		{
+			expectedType:    token.NOT_EQ,
+			expectedLiteral: "!=",
+		},
+		{
+			expectedType:    token.INT,
+			expectedLiteral: "9",
 		},
 		{
 			expectedType:    token.SEMICOLON,
