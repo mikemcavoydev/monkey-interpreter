@@ -1,6 +1,6 @@
 package ast
 
-import "go/token"
+import "github.com/mikemcavoydev/monkey-interpreter/token"
 
 type Node interface {
 	TokenLiteral() string
@@ -8,7 +8,7 @@ type Node interface {
 
 type Statement interface {
 	Node
-	StatementNode()
+	statementNode()
 }
 
 type Expression interface {
